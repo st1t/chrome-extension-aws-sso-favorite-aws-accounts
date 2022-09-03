@@ -1,0 +1,7 @@
+{
+  "name": "chrome-extension-aws-sso-favorites",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Shota Ito <shota.ito.jp@gmail.com>",
+  "license": "MIT"
+}
