@@ -1,0 +1,49 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SetupGo
+        uses: actions/setup-go@v3
+        with:
+          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
+      - name: SetupHub
+        shell: bash
+        run: |
+          sudo apt install hub
+          touch ~/.config/hub
+      - name: SetupGdp
+        shell: bash
+        run: go install github.com/Connehito/gdp@latest
+      - name: git setting
+        run: |
+          git config --local user.email "shota.ito.jp@gmail.com"
+          git config --local user.name "Shota Ito"
+      - name: CompileTypeScript
+        shell: bash
+        run: |
+          yarn install
+          yarn run tsc
+          rm -f .gitignore
+          git add dist
+          git commit -m 'Add dist file'
+      - name: GdpDeployAndPublish
+        shell: bash
+        run: |
+          echo yes | gdp deploy -f
+          gdp publish
+        env:
+          TZ: 'Asia/Tokyo'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

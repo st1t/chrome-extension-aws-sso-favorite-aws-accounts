@@ -84,7 +84,6 @@ window.addEventListener('load', () => {
         if (document.querySelector('#app-03e8643328913682') != null) {
             clearInterval(jsInitCheckTimer);
         } else {
-            console.error('Not found #app-03e8643328913682');
             return;
         }
         const target: HTMLElement = document.querySelector('[title="AWS Account"]') as HTMLInputElement;
