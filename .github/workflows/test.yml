@@ -1,0 +1,16 @@
+name: test
+
+on:
+  pull_request # types: opened, synchronize, and reopened by default
+
+jobs:
+  tslint:
+    name: tslint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - name: yarn run tslint
+        run: |
+          yarn install
+          yarn run tslint 'src/**/*.ts'
