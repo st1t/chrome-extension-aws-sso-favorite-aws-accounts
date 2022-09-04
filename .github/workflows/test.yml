@@ -1,5 +1,4 @@
 name: test
-
 on:
   pull_request # types: opened, synchronize, and reopened by default
 
