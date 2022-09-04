@@ -4,7 +4,16 @@
     "tslint:recommended"
   ],
   "rules": {
-    "semicolon": false,
-    "trailing-comma": false
+    "semicolon": true,
+    "no-console": [
+      true,
+      "log",
+      "warn",
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ]
   }
 }
