@@ -29,8 +29,8 @@ jobs:
         run: go install github.com/Connehito/gdp@latest
       - name: git setting
         run: |
-          git config --local user.email "dummy@hoge.com"
-          git config --local user.name "dummy"
+          git config --local user.email "shota.ito.jp@gmail.com"
+          git config --local user.name "Shota Ito"
       - name: CompileTypeScript
         shell: bash
         run: |
@@ -38,7 +38,7 @@ jobs:
           yarn run tsc
           rm -f .gitignore
           git add dist
-          git commit -m 'dummy'
+          git commit -m 'Add dist file'
       - name: GdpDeployAndPublish
         shell: bash
         run: |
