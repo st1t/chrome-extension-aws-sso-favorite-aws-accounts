@@ -1,0 +1,20 @@
+{
+  "name": "AWS SSO favorite AWS accounts",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "icons": {
+    "128": "images/aws128.png"
+  },
+  "description": "Google Chrome extension to display favorite AWS accounts at the top of the AWS Access Portal screen in the IAM Identity Center(formerly AWS SSO)",
+  "content_scripts": [
+    {
+      "run_at": "document_idle",
+      "matches": [
+        "https://*.awsapps.com/*"
+      ],
+      "js": [
+        "dist/index.js"
+      ]
+    }
+  ]
+}
