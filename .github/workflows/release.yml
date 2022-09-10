@@ -27,6 +27,11 @@ jobs:
       - name: SetupGdp
         shell: bash
         run: go install github.com/Connehito/gdp@latest
+      - name: GitTag
+        shell: bash
+        run: |
+          git tag
+          git log --oneline --decorate --graph --branches --tags --remotes | head -n 30
       - name: GdpDeployAndPublish
         shell: bash
         run: |
