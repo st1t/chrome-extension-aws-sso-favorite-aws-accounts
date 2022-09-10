@@ -31,7 +31,13 @@ jobs:
         shell: bash
         run: |
           git tag
+      - name: GitDescribe
+        shell: bash
+        run: |
           git describe --abbrev=0 --tags
+      - name: GitLog
+        shell: bash
+        run: |
           git log --oneline --decorate --graph --branches --tags --remotes | head -n 30
       - name: GdpDeployAndPublish
         shell: bash
