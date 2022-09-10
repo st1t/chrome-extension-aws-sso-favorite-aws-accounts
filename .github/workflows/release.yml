@@ -10,7 +10,6 @@ jobs:
     name: dry-run-release
     runs-on: ubuntu-latest
     permissions:
-      id-token: read
       contents: read
     steps:
       - uses: actions/checkout@v3
