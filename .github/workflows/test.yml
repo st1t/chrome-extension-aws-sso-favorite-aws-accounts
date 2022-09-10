@@ -13,3 +13,14 @@ jobs:
         run: |
           yarn install
           yarn run tslint 'src/**/*.ts'
+  diff-dist-index:
+    name: diff-dist-index
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: DiffIndex
+        shell: bash
+        run: |
+          yarn install
+          yarn run tsc --outDir ./tmp
+          diff ./dist/index.js ./tmp/index.js

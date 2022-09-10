@@ -2,12 +2,43 @@ name: release
 on:
   push:
     branches:
+      - ci-test
       - main
 
 jobs:
+  dry-run-release:
+    name: dry-run-release
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SetupGo
+        uses: actions/setup-go@v3
+        with:
+          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
+      - name: SetupHub
+        shell: bash
+        run: |
+          sudo apt install hub
+          touch ~/.config/hub
+      - name: SetupGdp
+        shell: bash
+        run: go install github.com/Connehito/gdp@latest
+      - name: GdpDeployAndPublish
+        shell: bash
+        run: |
+          echo yes | gdp deploy -f -d
+        env:
+          TZ: 'Asia/Tokyo'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     name: release
     runs-on: ubuntu-latest
+    environment: production
     permissions:
       id-token: write
       contents: write
