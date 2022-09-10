@@ -95,4 +95,3 @@ jobs:
         env:
           TZ: 'Asia/Tokyo'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
