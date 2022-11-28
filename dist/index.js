@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const portalInstanceListPath = 'body > app > portal-ui > div > div > div.container > centered-content > portal-dashboard > portal-application-list > sso-expander > portal-instance-list';
+const portalInstanceListPath = 'body > app > portal-ui > div > div > div.container > centered-content > portal-dashboard > div > portal-application-list > sso-expander > portal-instance-list';
 function searchAwsAccountNodes() {
     const nodes = Array.from(document.querySelectorAll(portalInstanceListPath + ' > div'));
     return nodes.filter(ac => ac.className.match(/ng-tns-c16-/));
