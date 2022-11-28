@@ -1,4 +1,4 @@
-const portalInstanceListPath: string = 'body > app > portal-ui > div > div > div.container > centered-content > portal-dashboard > portal-application-list > sso-expander > portal-instance-list';
+const portalInstanceListPath: string = 'body > app > portal-ui > div > div > div.container > centered-content > portal-dashboard > div > portal-application-list > sso-expander > portal-instance-list';
 
 function searchAwsAccountNodes() {
     const nodes: any[] = Array.from(document.querySelectorAll(portalInstanceListPath + ' > div'));
